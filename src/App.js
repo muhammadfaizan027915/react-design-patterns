@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ControlledForm from "./Components/Controlled Components/ControlledForm";
+import UnControlledOnboarding from "./Components/Uncontrolled Components/UnControlledOnboarding";
+
+const Step1 = ({ back, next }) => {
+  return (
+    <>
+      <h1>Step 1</h1>
+      <button onClick={back}>Back</button>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
+
+const Step2 = ({ back, next }) => {
+  return (
+    <>
+      <h1>Step 2</h1>
+      <button onClick={back}>Back</button>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
+
+const Step3 = ({ back, next }) => {
+  return (
+    <>
+      <h1>Step 3</h1>
+      <button onClick={back}>Back</button>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
+
+const Step4 = ({ back, next }) => {
+  return (
+    <>
+      <h1>Step 4</h1>
+      <button onClick={back}>Back</button>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UnControlledOnboarding>
+      <Step1 />
+      <Step2 />
+      <Step3 />
+      <Step4 />
+    </UnControlledOnboarding>
   );
 }
 
