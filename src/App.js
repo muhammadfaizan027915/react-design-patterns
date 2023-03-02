@@ -1,6 +1,7 @@
+import { useState } from "react";
 import "./App.css";
 import ControlledForm from "./Components/Controlled Components/ControlledForm";
-import UnControlledOnboarding from "./Components/Uncontrolled Components/UnControlledOnboarding";
+import ControlledOnboarding from "./Components/Controlled Components/ControlledOnboarding";
 
 const Step1 = ({ back, next }) => {
   return (
@@ -43,13 +44,24 @@ const Step4 = ({ back, next }) => {
 };
 
 function App() {
+  const [step, setStep] = useState(0);
+
+  const back = () => {
+    const back = step - 1;
+    if (back >= 0) setStep(back);
+  };
+
+  const next = () => {
+    setStep((step) => step + 1);
+  };
+
   return (
-    <UnControlledOnboarding>
+    <ControlledOnboarding step={step} back={back} next={next}>
       <Step1 />
       <Step2 />
       <Step3 />
       <Step4 />
-    </UnControlledOnboarding>
+    </ControlledOnboarding>
   );
 }
 
