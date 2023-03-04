@@ -1,19 +1,18 @@
 import "./App.css";
-import { Button } from "./Components/Functional Programming in React/Comosition Component";
-import PartialComponents from "./Components/Functional Programming in React/Partial Components";
+import HOCWithDataLoading from "./Components/Higher Order Components/HOC with Data Loading";
 
 function App() {
-  const DangerButton = PartialComponents(Button, {
-    size: "large",
-    background: "red",
-    border: "none",
-    color: "white",
-    borderRadius: "5px",
-    boxShadow: "5px 5px 10px lightgray",
-    display: "block",
-    margin: "200px auto"
-  });
-  return <DangerButton text="Signup Here" />;
+  const User = HOCWithDataLoading( ({index, title, body}) => {
+    return (
+      <>
+        <small>{index}</small>
+        <h5>{title}</h5>
+        <p>{body}</p>
+      </>
+    )
+  } ,"https://jsonplaceholder.typicode.com/posts/1")
+
+  return <User index = "1"/>
 }
 
 export default App;
